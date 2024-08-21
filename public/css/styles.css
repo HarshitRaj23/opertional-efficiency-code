@@ -4,6 +4,8 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  font-size: 120%;
+  background: #F8F8FF;
 }
 
 a {
@@ -281,43 +283,20 @@ footer .social-media a:hover {
   cursor: pointer;
 }
 
-/* General Resets */
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
-  font-size: 120%;
-  background: #F8F8FF;
-}
-
-/* Header Styling */
-.header {
-  width: 30%;
-  margin: 50px auto 0px;
-  color: white;
-  background: #5F9EA0;
-  text-align: center;
-  border: 1px solid #B0C4DE;
-  border-bottom: none;
-  border-radius: 10px 10px 0px 0px;
-  padding: 20px;
-}
-
 /* Form and Content Styling */
 form, .content {
-  width: 30%;
-  margin: 0px auto;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #B0C4DE;
   background: white;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px;
 }
 
 /* Input Group Styling */
 .input-group {
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0;
 }
 
 .input-group label {
@@ -328,7 +307,7 @@ form, .content {
 
 .input-group input {
   height: 30px;
-  width: 93%;
+  width: calc(100% - 20px); /* Adjust for padding */
   padding: 5px 10px;
   font-size: 16px;
   border-radius: 5px;
@@ -348,7 +327,7 @@ form, .content {
 /* Error and Success Messages Styling */
 .error {
   width: 92%;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 10px;
   border: 1px solid #a94442;
   color: #a94442;
@@ -362,4 +341,74 @@ form, .content {
   background: #dff0d8;
   border: 1px solid #3c763d;
   margin-bottom: 20px;
+}
+
+/* Specific Class for Centered Heading and Form */
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 2rem; /* Spacing between heading and form */
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.lead{
+  margin: 73px;
+}
+
+.bottom{
+  margin-bottom: 45px;
+}
+#newsletter{
+  padding: 60px 0;
+}
+
+/* Add padding and hover effects for team images */
+.img-container {
+  padding: 15px; /* Adjust the padding as needed */
+  border-radius: 10px; /* Optional: rounds the corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  position: relative; /* Necessary for the pseudo-element positioning */
+}
+
+.team-image {
+  display: block;
+  width: 100%;
+  height: auto; /* Ensures the image scales correctly */
+  border-radius: 10px; /* Rounds the corners */
+}
+
+.team-item:hover .img-container {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+}
+
+.team-item {
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.team-item:hover {
+  transform: translateY(-10px); /* Slightly lifts the team item on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+}
+
+
+/* Ensure the links inside feature boxes don't change the appearance */
+.feature-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure text color is inherited from feature-box */
+}
+
+.feature-link:hover .feature-box {
+  /* Add hover effect if needed */
+  background-color: #e0e0e0; /* Example hover background color */
+  transform: scale(1.05); /* Example hover scale effect */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
 }
