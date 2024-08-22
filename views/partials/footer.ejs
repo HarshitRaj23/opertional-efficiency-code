@@ -2,11 +2,19 @@
 <footer class="text-center">
     <div class="container">
         <div class="social-media mb-3">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
+            <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="mailto:info@neuralbraniacs.com" class="mx-2"><i class="fas fa-envelope"></i> Mail</a>
+            <a href="#" class="mx-2"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#" class="mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
         </div>
         <p>&copy; 2024 NEURAL BRAINIACS. All rights reserved.</p>
+    </div>
+
+    <!-- Chatbot Popup -->
+    <div id="chatbot-popup" class="chatbot-popup">
+        <i class="fas fa-user chatbot-icon"></i>
+        <div class="chatbot-text">How may I help you today?</div>
     </div>
 </footer>
 
@@ -18,6 +26,14 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="script.js"></script>
+
+
+<script>
+    // Auto-hide the chatbot popup after a few seconds
+    setTimeout(function () {
+        document.getElementById('chatbot-popup').style.display = 'none';
+    }, 5000);
+</script>
 </body>
 
 </html>

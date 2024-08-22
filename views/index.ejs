@@ -11,19 +11,66 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    .background-image {
+      background: url("/images/bg-image.avif") no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    .jumbotron {
+      background: rgba(197, 176, 176, 0.8);
+      margin: 0;
+    }
+
+    .typing {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid orange;
+      animation: typing 6s steps(30, end), blink .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: orange;
+      }
+    }
+
+    footer {
+      padding: 5px 0;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="jumbotron d-flex align-items-center justify-content-center">
-    <div class="container text-center">
-      <!-- logo -->
-      <h1 class="display-3">Welcome to Neural Branic</h1>
-      <hr>
-      <p class="lead">Optimizing banking efficiency with cutting-edge AI and machine learning technology. Transforming
-        your banking experience with smart automation and responsive chat support.</p>
-      <div class="button-group">
-        <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
-        <a class="btn btn-secondary btn-lg space" href="/login" role="button">Login</a>
+  <div class="background-image">
+    <div class="jumbotron d-flex align-items-center justify-content-center h-100">
+      <div class="container text-center">
+        <h1 class="display-3">Welcome to Neural Braniacs</h1>
+        <hr>
+        <p class="lead typing">Optimizing banking efficiency with cutting-edge AI and machine learning technology.....
+        </p>
+        <div class="button-group">
+          <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+          <a class="btn btn-secondary btn-lg space" href="/login" role="button">Login</a>
+        </div>
       </div>
     </div>
   </div>
@@ -31,9 +78,11 @@
   <footer class="text-center">
     <div class="container">
       <div class="social-media mb-3">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">LinkedIn</a>
+        <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="mailto:info@neuralbraniacs.com" class="mx-2"><i class="fas fa-envelope"></i> Mail</a>
+        <a href="#" class="mx-2"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" class="mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
       </div>
       <p>&copy; 2024 NEURAL BRAINIACS. All rights reserved.</p>
     </div>

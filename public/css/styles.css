@@ -230,7 +230,7 @@ header .navbar-toggler {
 footer {
   background-color: #343a40;
   color: #fff;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 footer .social-media a {
@@ -241,6 +241,7 @@ footer .social-media a {
 footer .social-media a:hover {
   color: #007bff;
 }
+
 
 /* Teams Section Styles */
 #teams .team-member {
@@ -411,4 +412,43 @@ form, .content {
   background-color: #e0e0e0; /* Example hover background color */
   transform: scale(1.05); /* Example hover scale effect */
   transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+/* Chatbot Popup Styles */
+#chatbot-popup {
+  position: fixed;
+  bottom: 80px; /* Adjusted to ensure it's just above the bottom content */
+  right: 20px;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: popupAnimation 0.5s ease-in-out;
+  z-index: 9999; /* Ensures it's on top of other content */
+}
+
+.chatbot-icon {
+  font-size: 30px;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.chatbot-text {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+@keyframes popupAnimation {
+  from {
+      transform: translateY(100px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
 }
