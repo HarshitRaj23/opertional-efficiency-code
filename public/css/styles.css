@@ -88,7 +88,7 @@ header .navbar-toggler {
 
 #hero .container {
   position: relative;
-  padding: 105px 0px 180px 0px;
+  padding: 105px 0 180px 0;
   z-index: 2;
 }
 
@@ -125,7 +125,7 @@ header .navbar-toggler {
   transform: scale(1.05);
 }
 
-/* CSS for Introduction Section */
+/* Introduction Section Styles */
 #introduction {
   padding: 60px 0;
   background-color: #e2bbe9; /* Updated background color */
@@ -152,9 +152,9 @@ header .navbar-toggler {
   font-size: 1.125rem; /* Larger text for better readability */
 }
 
-.introduction-h2{
+.introduction-h2 {
   padding: 25px;
-  margin-bottom: 25px ;
+  margin-bottom: 25px;
 }
 
 #introduction h2 {
@@ -182,8 +182,14 @@ header .navbar-toggler {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer; /* Change cursor to pointer (hand symbol) */
   transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  height: 250px; /* Fixed height to make all feature boxes the same size */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333; /* Ensure text color is set here */
 }
 
+/* Ensuring text color does not change on hover */
 .feature-box h3 {
   margin-bottom: 20px;
 }
@@ -200,36 +206,168 @@ header .navbar-toggler {
 .feature-box:hover {
   background-color: #e0e0e0; /* Change background color on hover */
   transform: scale(1.05); /* Slightly scale up the feature box on hover */
+  color: #333; /* Keep text color consistent on hover */
+}
+
+/* Remove underline from links inside feature boxes */
+.feature-link {
+  text-decoration: none;
+  color: inherit; /* Ensure text color is inherited from feature-box */
+}
+
+.feature-link:hover {
+  text-decoration: none;
+}
+
+/* Ensuring links inside feature boxes don’t get underlined */
+.feature-box a {
+  text-decoration: none;
+  color: inherit; /* Ensure text color is inherited from feature-box */
+}
+
+.feature-box a:hover {
+  text-decoration: none;
+}
+
+/* Full Width Container for Testimonials */
+.full-width-container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.full-width-container .container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: none;
+}
+
+/* Full Width Container for Testimonials */
+.full-width-container {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.full-width-container .container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: none;
 }
 
 /* Testimonials Section Styles */
-#testimonials {
-  background-color: #96ceb4; /* Updated background color */
-  padding: 50px 0 150px 0;
+.ext-testimonial {
+  background-color: #e9ecec; /* Uniform background color for consistency */
+  padding: 50px 0; /* More padding for a spacious look */
+  text-align: center;
+  position: relative; /* Position relative for overlay effect */
+  overflow: hidden; /* Ensures no overflow */
 }
 
-.carousel-inner {
-  padding: 10px;
-  margin: 20px auto 0 auto;
+.ext-testimonial::before {
+  content: ""; /* Removed gradient for a single color background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e9ecec; /* Matching background color */
+  z-index: 0;
 }
 
 .user-test {
-  margin-top: 20px;
-  margin-bottom: 35px;
-  padding-bottom: 45px;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 0 20px; /* Padding for better spacing */
+  color: #333; /* Dark text for contrast */
+  position: relative;
+  z-index: 1;
 }
 
-/* Carousel Controls */
+.carousel-inner {
+  background: #d7f0e8; /* White background for the carousel items */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden; /* Ensures no overflow */
+  position: relative; /* Position relative for animation effect */
+  z-index: 1;
+}
+
+.carousel-item {
+  padding: 60px; /* Reduced padding to make content fit better */
+  color: #333; /* Text color consistent with section text */
+  animation: fadeIn 2s ease-in-out; /* Animation for fading in */
+}
+
+.carousel-item p {
+  font-size: 1.125rem; /* Adjusted font size */
+  line-height: 1.6;
+  margin: 0;
+}
+
+.carousel-item p:first-child {
+  font-style: italic; /* Italicized testimonial text */
+  font-weight: 400;
+}
+
+.carousel-item p:last-child {
+  font-weight: 600;
+  margin-top: 20px; /* Reduced margin for better spacing */
+}
+
 .carousel-control-prev,
 .carousel-control-next {
-  filter: invert(1); /* Adjust icon color if needed */
+  width: 5%; /* Narrower controls */
+  color: #007bff; /* Primary color for controls */
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5); /* Make the background of the icons visible */
+  background-color: rgba(0, 0, 0, 0.2); /* Subtle background color */
   border-radius: 50%;
 }
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  color: #0056b3; /* Darker color on hover */
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  font-size: 1.5rem; /* Larger icons */
+}
+
+/* Keyframes for Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .carousel-item {
+    padding: 15px; /* Less padding on smaller screens */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%; /* Wider controls on smaller screens */
+  }
+}
+
+
+
 
 /* Footer Styles */
 footer {
@@ -246,7 +384,6 @@ footer .social-media a {
 footer .social-media a:hover {
   color: #007bff;
 }
-
 
 /* Teams Section Styles */
 #teams .team-member {
@@ -363,14 +500,15 @@ form, .content {
   width: 100%;
 }
 
-.lead{
+.lead {
   margin: 73px;
 }
 
-.bottom{
+.bottom {
   margin-bottom: 45px;
 }
-#newsletter{
+
+#newsletter {
   padding: 60px 0;
 }
 
@@ -405,7 +543,6 @@ form, .content {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
 }
 
-
 /* Ensure the links inside feature boxes don't change the appearance */
 .feature-link {
   text-decoration: none; /* Remove underline */
@@ -419,8 +556,7 @@ form, .content {
   transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
 }
 
-
- /* Chatbot Popup Styles */
+/* Chatbot Popup Styles */
 #chatbot-popup {
   position: fixed;
   bottom: 80px;
@@ -450,54 +586,54 @@ form, .content {
 /* Different animation keyframes */
 @keyframes popupAnimation1 {
   from {
-      transform: translateY(100px);
-      opacity: 0;
+    transform: translateY(100px);
+    opacity: 0;
   }
   to {
-      transform: translateY(0);
-      opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes popupAnimation2 {
   from {
-      transform: scale(0.5);
-      opacity: 0;
+    transform: scale(0.5);
+    opacity: 0;
   }
   to {
-      transform: scale(1);
-      opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes popupAnimation3 {
   from {
-      transform: translateX(-100px);
-      opacity: 0;
+    transform: translateX(-100px);
+    opacity: 0;
   }
   to {
-      transform: translateX(0);
-      opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes popupAnimation4 {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 @keyframes popupAnimation5 {
   from {
-      transform: rotate(-20deg);
-      opacity: 0;
+    transform: rotate(-20deg);
+    opacity: 0;
   }
   to {
-      transform: rotate(0deg);
-      opacity: 1;
+    transform: rotate(0deg);
+    opacity: 1;
   }
 }
 
@@ -520,4 +656,47 @@ form, .content {
 
 .popupAnimation5 {
   animation: popupAnimation5 0.5s ease-in-out;
+}
+
+/* About Page Styles */
+/* General Styling for Boxes */
+.about-feature-box {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: default;
+  transition: background-color 0.3s, transform 0.3s;
+  height: 350px; /* Fixed height for uniformity */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is spaced evenly */
+  color: #333;
+}
+
+/* Box Header Styling */
+.about-feature-box h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem; /* Adjust size for readability */
+  font-weight: bold;
+}
+
+/* List Styling Inside Boxes */
+.about-feature-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto; /* Adds scroll if content overflows */
+}
+
+.about-feature-box ul li {
+  margin-bottom: 10px;
+  font-size: 1rem; /* Ensure list items are readable */
+}
+
+/* Hover Effects */
+.about-feature-box:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.03); /* Slightly smaller scale effect */
+  color: #333;
 }

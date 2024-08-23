@@ -12,15 +12,33 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     .background-image {
       background: url("/images/bg-image.avif") no-repeat center center;
       background-size: cover;
       height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .jumbotron {
       background: rgba(197, 176, 176, 0.8);
       margin: 0;
+      padding: 2rem 1rem;
+      max-width: 100%;
     }
 
     .typing {
@@ -29,6 +47,8 @@
       white-space: nowrap;
       border-right: .15em solid orange;
       animation: typing 6s steps(30, end), blink .75s step-end infinite;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     @keyframes typing {
@@ -56,37 +76,63 @@
     footer {
       padding: 5px 0;
     }
+
+    .button-group .btn {
+      width: 200px;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 767px) {
+      .button-group .btn {
+        width: 150px;
+      }
+
+      .typing {
+        font-size: 1.2rem;
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .typing {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="background-image">
-    <div class="jumbotron d-flex align-items-center justify-content-center h-100">
-      <div class="container text-center">
-        <h1 class="display-3">Welcome to Neural Braniacs</h1>
-        <hr>
-        <p class="lead typing">Optimizing banking efficiency with cutting-edge AI and machine learning technology.....
-        </p>
-        <div class="button-group">
-          <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
-          <a class="btn btn-secondary btn-lg space" href="/login" role="button">Login</a>
+  <div class="container-fluid d-flex flex-column flex-grow-1">
+    <div class="row flex-grow-1">
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="background-image w-100 h-100 d-flex align-items-center justify-content-center">
+          <div class="jumbotron text-center">
+            <h1 class="display-3">Welcome to Neural Braniacs</h1>
+            <hr>
+            <p class="lead typing">
+              Optimizing banking efficiency with cutting-edge AI and machine learning technology.....
+            </p>
+            <div class="button-group">
+              <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+              <a class="btn btn-secondary btn-lg" href="/login" role="button">Login</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <footer class="text-center">
-    <div class="container">
-      <div class="social-media mb-3">
-        <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="mailto:info@neuralbraniacs.com" class="mx-2"><i class="fas fa-envelope"></i> Mail</a>
-        <a href="#" class="mx-2"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="#" class="mx-2"><i class="fab fa-twitter"></i> Twitter</a>
-        <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    <footer class="text-center mt-auto">
+      <div class="container">
+        <div class="social-media mb-3">
+          <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="mailto:info@neuralbraniacs.com" class="mx-2"><i class="fas fa-envelope"></i> Mail</a>
+          <a href="#" class="mx-2"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" class="mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+        <p>&copy; 2024 NEURAL BRAINIACS. All rights reserved.</p>
       </div>
-      <p>&copy; 2024 NEURAL BRAINIACS. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
