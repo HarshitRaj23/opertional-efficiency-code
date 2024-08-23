@@ -14,7 +14,7 @@
     <!-- Chatbot Popup -->
     <div id="chatbot-popup" class="chatbot-popup">
         <i class="fas fa-user chatbot-icon"></i>
-        <div class="chatbot-text">How may I help you today?</div>
+        <div id="chatbot-text" class="chatbot-text">How may I help you today?</div>
     </div>
 </footer>
 
@@ -27,12 +27,51 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="script.js"></script>
 
-
 <script>
-    // Auto-hide the chatbot popup after a few seconds
-    setTimeout(function () {
-        document.getElementById('chatbot-popup').style.display = 'none';
-    }, 5000);
+    // Array of different messages
+    const chatbotMessages = [
+        "How may I assist you today?",
+        "Need help with something?",
+        "What can I do for you?",
+        "How can I assist you?",
+        "Looking for assistance?"
+    ];
+
+    // Array of different animations
+    const animations = [
+        'popupAnimation1',
+        'popupAnimation2',
+        'popupAnimation3',
+        'popupAnimation4',
+        'popupAnimation5'
+    ];
+
+    // Function to change the chatbot text and apply a sequential animation at intervals
+    function changeChatbotText() {
+        const chatbotTextElement = document.getElementById('chatbot-text');
+        const chatbotPopupElement = document.getElementById('chatbot-popup');
+        let messageIndex = 0;
+        let animationIndex = 0;
+
+        setInterval(function () {
+            chatbotTextElement.innerHTML = chatbotMessages[messageIndex];
+
+            // Remove any previous animation classes
+            chatbotPopupElement.classList.remove(...animations);
+
+            // Apply the current animation
+            chatbotPopupElement.classList.add(animations[animationIndex]);
+
+            messageIndex = (messageIndex + 1) % chatbotMessages.length;
+            animationIndex = (animationIndex + 1) % animations.length;
+        }, 5000); // Change text every 5 seconds
+    }
+
+    // Show the chatbot popup and change text when the page loads
+    window.onload = function () {
+        changeChatbotText();
+    }
+
 </script>
 </body>
 

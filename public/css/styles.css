@@ -88,7 +88,7 @@ header .navbar-toggler {
 
 #hero .container {
   position: relative;
-  padding: 60px 0px 170px 0px;
+  padding: 105px 0px 180px 0px;
   z-index: 2;
 }
 
@@ -152,6 +152,11 @@ header .navbar-toggler {
   font-size: 1.125rem; /* Larger text for better readability */
 }
 
+.introduction-h2{
+  padding: 25px;
+  margin-bottom: 25px ;
+}
+
 #introduction h2 {
   font-size: 2.5rem; /* Large heading */
   color: #343a40; /* Dark color for better contrast */
@@ -210,8 +215,8 @@ header .navbar-toggler {
 
 .user-test {
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding-bottom: 40px;
+  margin-bottom: 35px;
+  padding-bottom: 45px;
 }
 
 /* Carousel Controls */
@@ -414,10 +419,11 @@ form, .content {
   transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
 }
 
-/* Chatbot Popup Styles */
+
+ /* Chatbot Popup Styles */
 #chatbot-popup {
   position: fixed;
-  bottom: 80px; /* Adjusted to ensure it's just above the bottom content */
+  bottom: 80px;
   right: 20px;
   background-color: #fff;
   border: 2px solid #007bff;
@@ -426,8 +432,7 @@ form, .content {
   display: flex;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: popupAnimation 0.5s ease-in-out;
-  z-index: 9999; /* Ensures it's on top of other content */
+  z-index: 9999;
 }
 
 .chatbot-icon {
@@ -442,7 +447,8 @@ form, .content {
   font-weight: bold;
 }
 
-@keyframes popupAnimation {
+/* Different animation keyframes */
+@keyframes popupAnimation1 {
   from {
       transform: translateY(100px);
       opacity: 0;
@@ -451,4 +457,67 @@ form, .content {
       transform: translateY(0);
       opacity: 1;
   }
+}
+
+@keyframes popupAnimation2 {
+  from {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes popupAnimation3 {
+  from {
+      transform: translateX(-100px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes popupAnimation4 {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes popupAnimation5 {
+  from {
+      transform: rotate(-20deg);
+      opacity: 0;
+  }
+  to {
+      transform: rotate(0deg);
+      opacity: 1;
+  }
+}
+
+/* Animation classes */
+.popupAnimation1 {
+  animation: popupAnimation1 0.5s ease-in-out;
+}
+
+.popupAnimation2 {
+  animation: popupAnimation2 0.5s ease-in-out;
+}
+
+.popupAnimation3 {
+  animation: popupAnimation3 0.5s ease-in-out;
+}
+
+.popupAnimation4 {
+  animation: popupAnimation4 0.5s ease-in-out;
+}
+
+.popupAnimation5 {
+  animation: popupAnimation5 0.5s ease-in-out;
 }
