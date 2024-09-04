@@ -65,6 +65,14 @@ app.get("/home", function(req, res) {
     }
 });
 
+app.get("/biDashboard", function(req, res) {
+    if (req.isAuthenticated()) {
+        res.render("biDashboard");
+    } else {
+        res.redirect("/login");
+    }
+});
+
 app.get("/about", function(req, res) {
     if (req.isAuthenticated()) {
         res.render("about");
