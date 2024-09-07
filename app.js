@@ -89,6 +89,11 @@ app.get("/teams", function(req, res) {
     }
 });
 
+app.get('/metamask-details', (req, res) => {
+    res.render('metamask-details');
+  });
+  
+
 app.get("/logout", function(req, res) {
     req.logout(function(err) {
         if (err) {

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEURAL BRAINIACS</title>
+    <link rel="icon" href="images/favicon.ico?v=2" />
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- MetaMask Script -->
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+
+    <style>
+        body {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .metamask-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metamask-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .metamask-header img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .metamask-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .metamask-container p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #d3d3d3;
+        }
+
+        .balance-section {
+            margin-top: 20px;
+            background-color: #262626;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .balance-section h2 {
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .balance-section p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .balance-section span {
+            color: #fff;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home"><img src="/images/favicon_io/favicon-32x32.png" alt="" /> Neural
+                Brainiacs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teams">Team</a>
+                    </li>
+                </ul>
+                <!-- MetaMask Button -->
+                <a class="btn btn-light btn-lg" id="connectButton" href="#" role="button">Connect MetaMask</a>
+                <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main MetaMask Section -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="metamask-container">
+                    <div class="metamask-header">
+                        <!-- MetaMask Logo and Title in One Line -->
+                        <img src="/images/metamask-logo.png" alt="MetaMask Logo" class="metamask-logo" />
+                        <h1>MetaMask</h1>
+                    </div>
+
+                    <p>Ethereum Mainnet</p>
+
+                    <!-- Account Section -->
+                    <p id="account">Account: Loading...</p>
+
+                    <!-- Balance Section -->
+                    <div class="balance-section">
+                        <h2 id="balance">Loading...</h2>
+                        <p><span id="balance-usd">$0.00 USD</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            if (typeof window.ethereum !== 'undefined') {
+                // Request account access if needed
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                const web3 = new Web3(window.ethereum);
+
+                // Get the user's accounts
+                const accounts = await web3.eth.getAccounts();
+                const account = accounts[0];
+
+                // Display the account address
+                document.getElementById('account').innerText = `Account: ${account.slice(0, 6)}...${account.slice(-4)}`;
+
+                // Fetch balance in Wei (smallest unit of Ether)
+                const balanceWei = await web3.eth.getBalance(account);
+                // Convert Wei to Ether
+                const balanceEth = web3.utils.fromWei(balanceWei, 'ether');
+
+                // Display balance in Ether
+                document.getElementById('balance').innerText = `${balanceEth} ETH`;
+
+                // Optionally, you could convert Ether to USD by calling an API (e.g., CoinGecko or Coinbase)
+                // For now, just display the balance in USD equivalent as a placeholder
+                const usdRate = 2000; // Example conversion rate, you can update this dynamically
+                const balanceInUsd = (balanceEth * usdRate).toFixed(2);
+                document.getElementById('balance-usd').innerText = `$${balanceInUsd} USD`;
+
+            } else {
+                // MetaMask is not installed
+                document.getElementById('account').innerText = 'MetaMask not installed';
+                document.getElementById('balance').innerText = '0 ETH';
+                document.getElementById('balance-usd').innerText = '$0.00 USD';
+            }
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-media mb-3">
+                <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="mailto:info@neuralbraniacs.com" class="mx-2"><i class="fas fa-envelope"></i> Mail</a>
+                <a href="#" class="mx-2"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="mx-2"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+            <p>&copy; 2024 NEURAL BRAINIACS. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
