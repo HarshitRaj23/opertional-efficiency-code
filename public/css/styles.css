@@ -701,3 +701,15 @@ form, .content {
   color: #333;
 }
 
+/* Add this to your /css/styles.css file */
+#connectButton {
+  margin-right: 10px; /* Adds space to the right of the button */
+  margin-left: 10px;  /* Adds space to the left of the button */
+  background-color: #f16d15; /* Changes background color */
+  color: #fff; /* Changes text color */
+  border: none; /* Removes border */
+}
+
+#connectButton:hover {
+  background-color: #ca7c55ea; /* Changes background color on hover */
+}
